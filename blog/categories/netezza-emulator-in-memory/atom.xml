@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Netezza Emulator In-memory | 4LiF3h4x0r5]]></title>
+  <link href="http://darkusha.com/blog/categories/netezza-emulator-in-memory/atom.xml" rel="self"/>
+  <link href="http://darkusha.com/"/>
+  <updated>2018-08-02T13:02:16+00:00</updated>
+  <id>http://darkusha.com/</id>
+  <author>
+    <name><![CDATA[Denys Arkusha]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Netezza Emulator: In-Memory Run]]></title>
+    <link href="http://darkusha.com/blog/2016/09/01/netezza-emulator-in-memory-run/"/>
+    <updated>2016-09-01T15:18:29+00:00</updated>
+    <id>http://darkusha.com/blog/2016/09/01/netezza-emulator-in-memory-run</id>
+    <content type="html"><![CDATA[<p>I want two share some experience that I&rsquo;ve got some time ago on the Netezza related testing.<br/>
+This article is not just around Netezza emulator, but the approach described below allowed me
+to save a lot of time on testing within I/O-greedy configurations (the laptop was just equipped by slow IDE HDD but with 16 GB of RAM).</p>
+
+<p>The problem I&rsquo;ve faced was very slow performance of test SQL statements execution and I assumed that
+using of RAM Disk approach hypothetically could help me.</p>
+
+<h4>Starting from that point I planned to accomplish the following steps:</h4>
+
+<ul>
+<li>Find and Setup the RAM Disk for Windows software (I&rsquo;m sure there are kind of alternatives are available for other platforms)</li>
+<li>Setup it</li>
+<li>Place the Netezza VM into the virtual disk and spin it in RAM</li>
+<li>Get the performance profit :)</li>
+</ul>
+
+
+<h4>The progress and the pitfalls:</h4>
+
+<ul>
+<li>I&rsquo;ve chosen the <a href="https://www.softperfect.com/products/ramdisk/">SoftPerfect RAMDisk</a> as a software and it was really perfect.
+It&rsquo;s useful and intuitive from installation and using perspectives.</li>
+</ul>
+
+
+<p><img src="https://www.softperfect.com/products/ramdisk/scr_main_window.png" alt="SoftPerfect RAMDisk UI" /></p>
+
+<ul>
+<li>I&rsquo;ve placed the VM image into the newly created RAM folder (8GB). <code>!Pitfall is there! When I didn't get expected performance boost, I've just installed the VMPlayer into the RAM folder as well as the VM image I've copied into it.</code></li>
+<li>Started VMPlayer newly installed into RAMDisk</li>
+<li>Started Netezza VM&hellip;</li>
+</ul>
+
+
+<h3>Viola! My Netezza VM start working 10 times faster</h3>
+
+<p>(on my own hardware of course :)</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Embedding HTML5 Video in Reveal.JS Presentation - 4LiF3h4x0r5</title>
+  <meta name="author" content="Denys Arkusha">
+
+  
+  <meta name="description" content="Some time ago I was talking to my friend Mairbek (@mairbek) about possible ways to make good and creative presentations.
+He advise me with the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://darkusha.com/blog/2016/01/27/html5-video-in-reveal-dot-js-presentation/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="4LiF3h4x0r5" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <!--header role="banner"><hgroup>
+  <h1><a href="/">4LiF3h4x0r5</a></h1>
+  
+    <h2>A blog for QA&#8217;s and lifehackers :)</h2>
+  
+</hgroup>
+
+</header-->
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="darkusha.com">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about"><h2>Denis Arkusha 4Liv3h4x0r5</h2></a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://github.com/1v1a3x">Projects</a></li>
+  <li><a href="https://www.linkedin.com/in/ma3xdedu111ka">Resume</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Embedding HTML5 Video in Reveal.JS Presentation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-27T08:50:34+00:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:50 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Some time ago I was talking to my friend Mairbek (<a href="https://github.com/mairbek">@mairbek</a>) about possible ways to make good and creative presentations.
+He advise me with the following solution that have been already tried out as a simple and lightweight HTML-framework with simple configuration,
+PDF-export, rich CSS and JS transformations etc. developed by one talented person <a href="https://github.com/hakimel">@hakimel</a> - (<a href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a>)</p>
+
+<p>So, the decision was to use this framework for my presentation and I was really happy till I&rsquo;ve faced a little problem that
+confused me in scope of my task &ldquo;to make the presentation more creative&rdquo; :).
+In fact I didn&rsquo;t find an ability to insert and operate with video and spending some time on research I found a little workaround to make it possible
+for me without spending of extra-time to dive into the framework logic.
+I&rsquo;ve just added dependency to JQuery and add two auxiliary functions into my presentation body to have make some magic to control my HTML5 video inside.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>...
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>...
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.4.2.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// This function start playing the video with id from current slide,</span>
+</span><span class='line'>    <span class="c1">// toggles it to the FullScreen mode and fires the CancelFullScreen()</span>
+</span><span class='line'>    <span class="c1">// at the end of the video.</span>
+</span><span class='line'>    <span class="kd">function</span> <span class="nx">toggleFullScreen</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">videoElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="o">+</span><span class="nx">id</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;ended&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span> <span class="nb">document</span><span class="p">.</span><span class="nx">webkitCancelFullScreen</span><span class="p">();</span> <span class="p">});</span>
+</span><span class='line'>        <span class="nx">videoElement</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">videoElement</span><span class="p">.</span><span class="nx">webkitRequestFullScreen</span><span class="p">(</span><span class="nx">Element</span><span class="p">.</span><span class="nx">ALLOW_KEYBOARD_INPUT</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// This part is to add a listener for &lt;Enter&gt; key and to call toggleFullScreen()</span>
+</span><span class='line'>    <span class="c1">// function with the video ID that is dynamically obtained from the CURRENTLY displayed slide.</span>
+</span><span class='line'>    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">toggleFullScreen</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.present&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Including the HTML5 video into <a href="https://github.com/hakimel/reveal.js">Reveal.js</a></h2>
+
+<p>So, at this point I was able to include something like that and control the video start by hitting the <strong><Enter></strong> key.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>...
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;reveal&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slides&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;section&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;video</span> <span class="na">id=</span><span class="s">&quot;myvideo&quot;</span> <span class="na">src=</span><span class="s">&quot;video/test.ogv&quot;</span> <span class="na">type=</span><span class="s">&quot;video/ogg&quot;</span> <span class="na">style=</span><span class="s">&quot;heigth: 50%; width: 50%;&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can download the demo zip-file <a href="reveal/reveal.js_with_video.zip">here</a> and open the <strong>&lsquo;index.html&rsquo;</strong> after unpacking.<br/>
+<em>(12Mb with sample video)</em></p>
+
+<p>Or you can just click <a href="/images/Record.gif" target="_blank" onclick="wincontrol=window.open('/images/Record.gif','GIF-Demo','resizable=1,status=1,menubar=1,toolbar=1,scrollbars=1,location=1,directories=1,width=690,height=388');return false;">here</a> to see a little GIF-demo.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Denys Arkusha</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-01-27T08:50:34+00:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:50 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/presentation/'>presentation</a>, <a class='category' href='/blog/categories/reveal-dot-js/'>reveal.js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://darkusha.com/blog/2016/01/27/html5-video-in-reveal-dot-js-presentation/" data-via="" data-counturl="http://darkusha.com/blog/2016/01/27/html5-video-in-reveal-dot-js-presentation/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/09/01/netezza-emulator-in-memory-run/" title="Next Post: Netezza Emulator: In-Memory run">Netezza Emulator: In-Memory run &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/09/06/work-notes-dropbox-slash-sublime-plus-todo-slash-git-notepad/">Work Notes: DropBox/Sublime+ToDo/Git Notepad</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/06/work-notes-using-box-dot-com-slash-gitlab-slash-source-tree-to-improve-productivity-and-visibility-of-test-cases-execution/">Work Notes : Using Box.com / GitLab / Source Tree to Improve Productivity and Visibility of Test Cases Execution</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/01/work-notes-chrome-dev-tools/">Work Notes : Chrome Dev Tools</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/01/netezza-emulator-in-memory-run/">Netezza Emulator: In-Memory Run</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/27/html5-video-in-reveal-dot-js-presentation/">Embedding HTML5 Video in Reveal.JS Presentation</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Denys Arkusha -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
