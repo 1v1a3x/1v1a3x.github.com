@@ -1,0 +1,18 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": null,
+  "orientation": "any",
+  "scope": "/",
+  "short_name": null,
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "images/16x16.gif",
+      "type": "image/gif",
+      "sizes": "16x16"
+    }
+  ]
+}
