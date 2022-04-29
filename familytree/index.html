@@ -1,3 +1,4 @@
+<!--https://github.com/bumbeishvili/org-chart-->
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -17,8 +18,8 @@
 <script>
     var chart;
     d3.csv(
-        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5G8lqL3Pk20shGm5nVv3J5w9Al4k7TmAwJVcdJ-0h1w3qgFWMn-UCvwHi7z4RMTgRS3_bGKmZtDCE/pub?gid=0&single=true&output=csv'
-        // 'https://raw.githubusercontent.com/bumbeishvili/sample-data/main/org.csv'
+        // 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5G8lqL3Pk20shGm5nVv3J5w9Al4k7TmAwJVcdJ-0h1w3qgFWMn-UCvwHi7z4RMTgRS3_bGKmZtDCE/pub?gid=0&single=true&output=csv'
+        'org.csv'
     ).then((dataFlattened) => {
         const mappedData = dataFlattened.map((d) => {
             const width = Math.round(Math.random() * 50 + 300);
@@ -36,7 +37,7 @@
             const contentMarginLeft = width / 2 + 25;
             return {
                 nodeId: d.id,
-                parentNodeId: d.parentId,
+                parentNodeId: d.parentOf,
                 width: width,
                 height: height,
                 borderWidth: 1,
