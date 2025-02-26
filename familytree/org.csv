@@ -1,9 +1,0 @@
-id,parentOf,name,positionName,imageUrl,tags,office,area,isLoggedUser,size,profileUrl,Comment
-0,,"0","","","","",,"",,"",
-1,0,Аркуша Михаил Денисович,👑 Родился в 09:14,https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/D3/Organization%20Chart/general.jpg,>,08.05.2016,,FALSE,,http://example.com/employee/profile,
-2,0,"2","","","","",,"",,"",
-3,0,"3","","","","",,"",,"",
-4,1,"4","","","","",,"",,"",
-5,2,"5","","","","",,"",,"",
-6,3,"6","","","","",,"",,"",
-6,2,"6","","","","",,"",,"",
