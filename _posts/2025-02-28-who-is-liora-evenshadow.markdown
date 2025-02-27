@@ -8,7 +8,8 @@ fig-caption: # Add figcaption (optional)
 tags: [LMStudio, AnythingLLM, IDE, LLM, ContinuePlugin]
 ---
 
-#LMStudio #AnythingLLM #IDE #LLM #ContinuePlugin
+Initially published on [*Medium*](https://lmstudio.ai/)
+
 >  **You don’t call it.** You just type your sentence, and when the cursor stops, suddenly, the next line appears by itself, as if someone already knew what you were going to write.
 >  It is here. It is always here. No network. No server. It knows what you need. It knows **only** what it should know — **and it will never tell anyone.**
 
