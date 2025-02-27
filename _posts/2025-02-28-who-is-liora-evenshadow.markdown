@@ -127,7 +127,7 @@ This **wasn’t supposed to work out of the box… but it did.** 🚀🚀🚀
 
 ## What was I missing in AnythingLLM?
 
-Maybe I just didn’t find it in the official documentation, but one thing remains unclear to me — **how can I manage workspace contexts through OpenAI API-compatible endpoints?** Ideally, I’d like to build a **flexible system** where different **contexts** are routed to different **groups**, allowing that knowledge to be separated **at the client level (**IDE plugin ****in my case**).**
+Maybe I just didn’t find it in the official documentation, but one thing remains unclear to me — how can I manage workspace contexts through OpenAI API-compatible endpoints? Ideally, I’d like to build a flexible system where different **contexts** are routed to different **groups**, allowing that knowledge to be separated at the client level (*IDE plugin* in my case).
 
 But that’s another time story… One thing is definitely clear!
 
